@@ -1,26 +1,49 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './Header';
+import Footer from './Footer';
+import Note from './Note';
+import notes from './notes';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+/*
+
+	Name: Keeper
+	Date: 07/22/20
+	Desc: 
+		Google Notes Clone. Complete Dev Bootcamp
+	
+	TODO:
+		*Pin to the top
+		*Sort Feauture
+		*Labels / Categories
+		** Fitlter by Labels
+		** Hide certain notes from main list
+		* Ability to add notes dynamically
+		* Share notes to Social media or Email
+		* Display / Rearrange 
+
+
+*/
+
+
+
+const noteList = notes.map( n=> <Note key={n.key} title={n.title} content={n.content} /> );
+
+const App = () =>{
+	return (
+		
+
+		<React.Fragment>
+			<Header />
+				{noteList}
+			<Footer />
+		</React.Fragment>
+
+	);
+
 }
 
-export default App;
+
+export default App
+
+
