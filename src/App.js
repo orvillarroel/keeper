@@ -12,7 +12,7 @@ import notes from './notes';
 	Desc: 
 		Google Notes Clone. Complete Dev Bootcamp
 	
-	DONE: Added to Github ... test
+	DONE: Added to Github
 
 	TODO:
 		*Pin to the top
