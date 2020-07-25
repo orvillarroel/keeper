@@ -31,18 +31,21 @@ import notes from './notes';
 
 const noteList = notes.map( n=> <Note key={n.key} title={n.title} content={n.content} /> );
 
-const App = () =>{
-	return (
-		
+class App extends React.Component {
 
-		<React.Fragment>
-			<Header />
-				{noteList}
-			<Footer />
-		</React.Fragment>
+	render (){
+		return (
+			
 
-	);
+			<React.Fragment>
+				<Header />
 
+					{noteList}
+				<Footer />
+			</React.Fragment>
+
+		);
+	}
 }
 
 
