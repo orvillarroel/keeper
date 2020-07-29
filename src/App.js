@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import Note from './Note';
-import notes from './notes';
+import notesDB2 from './notes';			// local DB of notes
+import CreateArea from './CreateArea';
 
 
 /*
@@ -28,24 +29,36 @@ import notes from './notes';
 */
 
 
+const App = () => {
+	const [notes,setNotes] = useState([...notesDB2]);
 
-const noteList = notes.map( n=> <Note key={n.key} title={n.title} content={n.content} /> );
+	const addNote = newNote=>{
+		setNotes(previous=>{
+			return [newNote,...previous]
+		});
+	};
 
-class App extends React.Component {
+	const deleteNote = id => {
+		setNotes(previous=>{
+			return previous.filter((item,index)=> index!==id);
+		});
+	}
 
-	render (){
-		return (
+	// old static notes
+	const noteList = notes.map( (n,index)=> <Note key={index} id={index} title={n.title} content={n.content} deleteButton={deleteNote}/> );
+
+	return (
 			
 
 			<React.Fragment>
 				<Header />
-
+					<CreateArea handleItem={addNote}/>
 					{noteList}
 				<Footer />
 			</React.Fragment>
 
 		);
-	}
+	
 }
 
 
