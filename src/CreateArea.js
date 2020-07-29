@@ -15,13 +15,10 @@ function CreateArea(props) {
 	};
 
 	const handleSubmit = (event) => {
-		// pass value of item to parent function to add to list
 		props.handleItem(item);
 		setItem({title: '', content: ''});
 
 		event.preventDefault();		//Stops form from actually being submitted and page reloaded
-
-		// reset values of item
 	}
 
   return (
